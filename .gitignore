@@ -1,0 +1,15 @@
+# Datasets
+fruits360/
+dataset/
+
+# Archivos temporales
+uploads/
+__pycache__/
+*.pyc
+
+# Entornos virtuales
+venv/
+.venv/
+
+# Archivos de prueba
+imagen_prueba.jpg

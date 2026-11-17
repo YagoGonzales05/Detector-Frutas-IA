@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FruitScan AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<body>
+
+    <header>
+        <div class="logo">🍃 FruitScan AI</div>
+    </header>
+
+    <main>
+
+        <h1>Descubre el estado de tus frutas</h1>
+
+        <p>
+            Sube una fotografía y nuestra inteligencia artificial
+            identificará el alimento y analizará su estado visual.
+        </p>
+
+        <div class="scanner">
+
+            <h2>Analiza tu fruta</h2>
+
+            <input type="file" id="imagen" accept="image/*">
+
+            <button id="botonAnalizar">Analizar imagen</button>
+
+        </div>
+
+    </main>
+
+    <footer>
+        FruitScan AI | Proyecto de inteligencia artificial
+    </footer>
+
+</body>
+</html>
