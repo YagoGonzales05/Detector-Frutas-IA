@@ -13,3 +13,4 @@ venv/
 
 # Archivos de prueba
 imagen_prueba.jpg
+modelo_frutas_3clases.h5

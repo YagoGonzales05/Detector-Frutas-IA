@@ -4,41 +4,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FruitScan AI</title>
-
+    <meta name="theme-color" content="#080f0c">
+    <title>FruitScan AI | Intelligent Food Analysis</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<script src="{{ url_for('static', filename='script.js') }}"></script>
 <body>
 
-    <header>
-        <div class="logo">🍃 FruitScan AI</div>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header class="navbar">
+        <a href="/" class="brand">
+            <span class="brand-symbol">F<span>✳</span></span>
+            <span>FruitScan<span class="brand-accent">.AI</span></span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#scanner">Analizador</a>
+            <a href="#tecnologia">Tecnología</a>
+        </nav>
+
+        <div class="system-status">
+            <span class="status-dot"></span>
+            SISTEMA ACTIVO
+        </div>
     </header>
 
     <main>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span>✦</span> COMPUTER VISION TECHNOLOGY
+                </div>
 
-        <h1>Descubre el estado de tus frutas</h1>
+                <h1>
+                    La inteligencia<br>
+                    detrás de tus<br>
+                    <span>alimentos.</span>
+                </h1>
 
-        <p>
-            Sube una fotografía y nuestra inteligencia artificial
-            identificará el alimento y analizará su estado visual.
-        </p>
+                <p>
+                    Descubre qué alimento tienes delante y conoce su estado
+                    visual mediante modelos de inteligencia artificial.
+                </p>
 
-        <div class="scanner">
+                <a href="#scanner" class="hero-button">
+                    Explorar analizador <span>↗</span>
+                </a>
 
-            <h2>Analiza tu fruta</h2>
+                <div class="hero-stats">
+                    <div>
+                        <strong>02</strong>
+                        <span>Modelos de IA</span>
+                    </div>
+                    <div class="stat-separator"></div>
+                    <div>
+                        <strong>03</strong>
+                        <span>Estados visuales</span>
+                    </div>
+                    <div class="stat-separator"></div>
+                    <div>
+                        <strong>AI</strong>
+                        <span>Visión artificial</span>
+                    </div>
+                </div>
+            </div>
 
-            <input type="file" id="imagen" accept="image/*">
+            <div class="hero-visual">
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+                <div class="visual-core">
+                    <div class="core-inner">🍃</div>
+                </div>
+                <div class="floating-card card-top">
+                    <span class="mini-dot"></span>
+                    VISUAL RECOGNITION
+                    <strong>ACTIVE</strong>
+                </div>
+                <div class="floating-card card-bottom">
+                    <span>✦</span>
+                    <div>
+                        <strong>Fruit Intelligence</strong>
+                        <small>Powered by deep learning</small>
+                    </div>
+                </div>
+                <div class="visual-caption">01 / INTELLIGENT FOOD SYSTEM</div>
+            </div>
+        </section>
 
-            <button id="botonAnalizar">Analizar imagen</button>
+        <section class="scanner-section" id="scanner">
+            <div class="section-intro">
+                <div>
+                    <span class="section-kicker">01 — ANALYSIS LAB</span>
+                    <h2>Laboratorio de <span>análisis.</span></h2>
+                    <p>Sube una fotografía y deja que nuestros modelos hagan el trabajo.</p>
+                </div>
+                <div class="lab-indicator">
+                    <span class="status-dot"></span>
+                    READY TO SCAN
+                </div>
+            </div>
 
-        </div>
+            <div class="dashboard">
+                <div class="panel upload-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <span class="panel-number">01</span>
+                            <h3>Entrada de imagen</h3>
+                        </div>
+                        <span class="panel-icon">⌁</span>
+                    </div>
 
+                    <label for="imagen" class="upload-area" id="uploadArea">
+                        <div class="upload-content" id="uploadContent">
+                            <div class="upload-symbol">
+                                <span>↑</span>
+                            </div>
+                            <h4>Arrastra tu imagen aquí</h4>
+                            <p>O selecciona un archivo desde tu dispositivo</p>
+                            <span class="upload-formats">JPG / JPEG / PNG / WEBP</span>
+                        </div>
+                        <img id="previewImagen" alt="Vista previa del alimento" hidden>
+                    </label>
+
+                    <input type="file" id="imagen"
+                        accept="image/png,image/jpeg,image/webp" hidden>
+
+                    <button id="botonAnalizar" class="analyze-button" type="button">
+                        <span>Iniciar análisis inteligente</span>
+                        <span class="button-arrow">↗</span>
+                    </button>
+
+                    <div class="upload-footer">
+                        <span>⌑ Procesamiento temporal</span>
+                        <span>FRUITSCAN ENGINE</span>
+                    </div>
+                </div>
+
+                <div class="panel results-panel" id="resultados">
+                    <div class="panel-heading">
+                        <div>
+                            <span class="panel-number">02</span>
+                            <h3>Resultado del análisis</h3>
+                        </div>
+                        <span class="live-label">● LIVE</span>
+                    </div>
+
+                    <div id="resultadoVacio" class="empty-result">
+                        <div class="empty-graphic">
+                            <div class="empty-ring ring-a"></div>
+                            <div class="empty-ring ring-b"></div>
+                            <span>✳</span>
+                        </div>
+                        <h4>Esperando imagen</h4>
+                        <p>Los resultados de identificación y evaluación visual aparecerán aquí.</p>
+                        <span class="waiting-label">AWAITING INPUT...</span>
+                    </div>
+
+                    <div id="resultadoContenido" hidden>
+                        <div class="analysis-result">
+                            <span class="result-label">ALIMENTO IDENTIFICADO</span>
+                            <h2 id="resultadoFruta">--</h2>
+                            <div class="confidence-line">
+                                <span>Confianza del modelo</span>
+                                <strong id="confianzaFruta">--</strong>
+                            </div>
+                        </div>
+
+                        <div class="result-separator"></div>
+
+                        <div class="analysis-result state-result">
+                            <span class="result-label">EVALUACIÓN DEL ESTADO VISUAL</span>
+                            <div class="state-container">
+                                <span id="estadoIndicador" class="state-indicator"></span>
+                                <h3 id="resultadoEstado">--</h3>
+                            </div>
+                            <div class="confidence-line">
+                                <span>Confianza del modelo</span>
+                                <strong id="confianzaEstado">--</strong>
+                            </div>
+                        </div>
+
+                        <div class="result-note">
+                            <span>ⓘ</span>
+                            La clasificación es una estimación visual y no certifica la inocuidad del alimento.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="technology-section" id="tecnologia">
+            <div class="section-intro">
+                <div>
+                    <span class="section-kicker">02 — OUR TECHNOLOGY</span>
+                    <h2>Dos modelos. <span>Una solución.</span></h2>
+                    <p>Un sistema de visión artificial que combina dos tareas independientes.</p>
+                </div>
+            </div>
+
+            <div class="technology-grid">
+                <article class="tech-card">
+                    <div class="tech-icon">◈</div>
+                    <span class="tech-index">MODEL 01</span>
+                    <h3>Identificación</h3>
+                    <p>Reconoce el alimento y su variedad mediante un modelo de clasificación de imágenes.</p>
+                    <span class="tech-footer">MobileNetV2 · Fruits-360</span>
+                </article>
+
+                <article class="tech-card">
+                    <div class="tech-icon">⌬</div>
+                    <span class="tech-index">MODEL 02</span>
+                    <h3>Estado visual</h3>
+                    <p>Evalúa la apariencia del alimento y lo clasifica en tres categorías visuales.</p>
+                    <span class="tech-footer">Deep Learning · Custom Dataset</span>
+                </article>
+
+                <article class="tech-card">
+                    <div class="tech-icon">⌘</div>
+                    <span class="tech-index">SYSTEM 03</span>
+                    <h3>Integración inteligente</h3>
+                    <p>Conecta los modelos con una interfaz web para presentar los resultados.</p>
+                    <span class="tech-footer">Python · Flask · JavaScript</span>
+                </article>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        FruitScan AI | Proyecto de inteligencia artificial
+    <footer class="footer">
+        <a href="/" class="brand">
+            <span class="brand-symbol">F<span>✳</span></span>
+            <span>FruitScan<span class="brand-accent">.AI</span></span>
+        </a>
+        <p>Inteligencia artificial aplicada al análisis de alimentos.</p>
+        <span class="footer-version">VERSION 2.0</span>
     </footer>
 
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
